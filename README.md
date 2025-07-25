@@ -1,7 +1,6 @@
 # 💰 Smart Money Guide - Personal Finance Project
 
-This is the first version of my personal finance website, created as a learning project to apply my HTML and CSS skills.
-
+This is the first and most basic version of my personal finance website, built as a learning project to practice and apply my HTML and CSS skills.
 ## 🌟 Purpose
 
 I created this project to help people visualize how to organize their income and expenses using clear sections and beautiful design. It's part of my learning journey as I prepare to become a Software Engineer.
