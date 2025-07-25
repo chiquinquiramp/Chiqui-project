@@ -1,0 +1,136 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body {
+    font-family: 'Segoe UI', sans-serif;
+    background-color: #ffffff;
+    color: #333;
+    line-height: 1.6;
+    padding: 0 20px;
+}
+
+header {
+   display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 0;
+}
+nav ul {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+}
+nav a {
+    color: #2d3436;
+    text-decoration: none;
+    font-weight: bold;
+}
+#intro {
+    text-align: center;
+    padding: 60px 0 40px;
+}
+.cta-button {
+    display: inline-block;
+    margin-top: 20px;
+    background-color: #28a745;
+    color: white;
+    padding: 14px 28px;
+    border-radius: 6px;
+    font-weight: bold;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.15);
+    text-decoration: none;
+    transition: background-color 0.3s ease;
+}
+.cta-button:hover {
+    background-color: #218838;
+}
+.card-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+    padding: 30px;
+}
+.card {
+    background-color: white;
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.06);
+    flex: 1 1 300px;
+}
+.card h3 {
+    color: #6c5ca7;
+}
+section {
+    margin-bottom: 50px;
+}
+.info-section a,
+.info-box a {
+  color: #1a4dd7;
+  text-decoration: none;
+}
+
+.info-section a:hover,
+.info-box a:hover {
+  text-decoration: underline;
+}
+footer {
+    text-align: center;
+    padding: 20px 0;
+    margin-top: 60px;
+    font-size: 0.9rem;
+    color: #666;
+    border-top: 1px solid #ddd;
+}
+.info-section {
+    display: flex;
+    justify-content: space-between;
+    gap: 40px;
+    background-color: transparent;
+    padding: 0 30px;
+    flex-wrap: wrap; /* Just in case you're in small screens */
+    margin-top: 50px;
+    margin-bottom: 80px;
+}
+.info-section section {
+    flex: 1;
+    min-width: 300px;
+}
+.info-section h2 {
+   font-size: 1.5em;
+   margin-bottom: 10px;
+}
+.info-section ul {
+    list-style-type: disc;
+    padding-left: 20px;
+}
+.info-box {
+  flex: 1;
+  min-width: 280px;
+  background-color: #f5f8fc;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.06);
+}
+.info-box h2 {
+  font-size: 1.3rem;
+  margin-bottom: 10px;
+}
+.info-box p {
+  font-size: 0.95rem;
+  margin-bottom: 12px;
+}
+.info-box a {
+  color: #1a4dd7;
+  text-decoration: none;
+}
+section#tips {
+  margin-top: 40px;
+}
+.button:hover {
+  background-color: #0056b3;
+  color: white;
+  cursor: pointer;
+}
