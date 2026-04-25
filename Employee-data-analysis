@@ -1,0 +1,134 @@
+{
+  "nbformat": 4,
+  "nbformat_minor": 0,
+  "metadata": {
+    "colab": {
+      "provenance": [],
+      "authorship_tag": "ABX9TyOg5vBUDch2VlIWENchR3KE",
+      "include_colab_link": true
+    },
+    "kernelspec": {
+      "name": "python3",
+      "display_name": "Python 3"
+    },
+    "language_info": {
+      "name": "python"
+    }
+  },
+  "cells": [
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "view-in-github",
+        "colab_type": "text"
+      },
+      "source": [
+        "<a href=\"https://colab.research.google.com/github/chiquinquiramp/Chiqui-project/blob/main/Employee-data-analysis\" target=\"_parent\"><img src=\"https://colab.research.google.com/assets/colab-badge.svg\" alt=\"Open In Colab\"/></a>"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "import pandas as pd\n",
+        "\n",
+        "# Create data for 20 construction workers\n",
+        "data = {\n",
+        "    'Employee Name': ['Joseph Vabbe', 'Carla Menendez', 'Valery Swahss', 'Vania Anderson', 'Camila Mendes',\n",
+        "                      'Julie Colm', 'Jordan Anderson', 'Louis Bent', 'Maia Millert', 'Ben Carroll',\n",
+        "                      'Ana Galvez', 'Alex Patterson', 'Maya West', 'Camila Blanco', 'David Jeff',\n",
+        "                      'Carlos Fort', 'Steph Flores', 'Lis Harush', 'Mia Benort', 'John Smith'],\n",
+        "    'Department': ['Electrician', 'Carpenter', 'Supervisor', 'Assistant', 'Laborer',\n",
+        "                   'Sales', 'Sales', 'Sales', 'Marketing', 'Technician',\n",
+        "                   'Account', 'Customer Support', 'Sales', 'Customer Support', 'Junior Developer',\n",
+        "                   'Senior Developer', 'Sales Director', 'Executive Assistant', 'Maintenance', 'Electrician'],\n",
+        "    'Hourly Rate': [25, 22, 31, 18, 16, 14, 14, 14, 35, 25, 45, 14, 14, 14, 65, 135, 30, 25, 16, 25],\n",
+        "    'Hours Worked': [45, 35, 40, 47, 50, 40, 40, 40, 45, 40, 30, 50, 40, 40, 40, 40, 50, 40, 40, 45]\n",
+        "}\n",
+        "\n",
+        "# Create DataFrame\n",
+        "df = pd.DataFrame(data)\n",
+        "\n",
+        "# Calculate base pay (Hourly rate * hours worked)\n",
+        "df['Base Pay'] = df['Hourly Rate'] * df['Hours Worked']\n",
+        "\n",
+        "# Calculate Bonus (If hours > 40, then base pay * 0.15, else 0)\n",
+        "df['Bonus'] = df.apply(lambda row: row['Base Pay'] * 0.15 if row['Hours Worked'] > 40 else 0, axis=1)\n",
+        "\n",
+        "# Calculate Total Pay\n",
+        "df['Total Pay'] = df['Base Pay'] + df['Bonus']\n",
+        "\n",
+        "# Display the table\n",
+        "print(df)\n",
+        "\n"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "ZJNumIAz1Rw2",
+        "outputId": "a320366a-b666-495f-8749-f66cd2aa5587"
+      },
+      "execution_count": null,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "      Employee Name           Department  Hourly Rate  Hours Worked  Base Pay  \\\n",
+            "0      Joseph Vabbe          Electrician           25            45      1125   \n",
+            "1    Carla Menendez            Carpenter           22            35       770   \n",
+            "2     Valery Swahss           Supervisor           31            40      1240   \n",
+            "3    Vania Anderson            Assistant           18            47       846   \n",
+            "4     Camila Mendes              Laborer           16            50       800   \n",
+            "5        Julie Colm                Sales           14            40       560   \n",
+            "6   Jordan Anderson                Sales           14            40       560   \n",
+            "7        Louis Bent                Sales           14            40       560   \n",
+            "8      Maia Millert            Marketing           35            45      1575   \n",
+            "9       Ben Carroll           Technician           25            40      1000   \n",
+            "10       Ana Galvez              Account           45            30      1350   \n",
+            "11   Alex Patterson     Customer Support           14            50       700   \n",
+            "12        Maya West                Sales           14            40       560   \n",
+            "13    Camila Blanco     Customer Support           14            40       560   \n",
+            "14       David Jeff     Junior Developer           65            40      2600   \n",
+            "15      Carlos Fort     Senior Developer          135            40      5400   \n",
+            "16     Steph Flores       Sales Director           30            50      1500   \n",
+            "17       Lis Harush  Executive Assistant           25            40      1000   \n",
+            "18       Mia Benort          Maintenance           16            40       640   \n",
+            "19       John Smith          Electrician           25            45      1125   \n",
+            "\n",
+            "     Bonus  Total Pay  \n",
+            "0   168.75    1293.75  \n",
+            "1     0.00     770.00  \n",
+            "2     0.00    1240.00  \n",
+            "3   126.90     972.90  \n",
+            "4   120.00     920.00  \n",
+            "5     0.00     560.00  \n",
+            "6     0.00     560.00  \n",
+            "7     0.00     560.00  \n",
+            "8   236.25    1811.25  \n",
+            "9     0.00    1000.00  \n",
+            "10    0.00    1350.00  \n",
+            "11  105.00     805.00  \n",
+            "12    0.00     560.00  \n",
+            "13    0.00     560.00  \n",
+            "14    0.00    2600.00  \n",
+            "15    0.00    5400.00  \n",
+            "16  225.00    1725.00  \n",
+            "17    0.00    1000.00  \n",
+            "18    0.00     640.00  \n",
+            "19  168.75    1293.75  \n"
+          ]
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [],
+      "metadata": {
+        "id": "-SQbxJkG440I"
+      },
+      "execution_count": null,
+      "outputs": []
+    }
+  ]
+}
